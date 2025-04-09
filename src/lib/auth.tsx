@@ -1,5 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import toast from 'react-hot-toast';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 // Default admin credentials
 const DEFAULT_ADMIN_EMAIL = 'admin@storybook.com';

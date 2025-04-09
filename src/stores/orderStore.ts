@@ -45,7 +45,7 @@ export interface OrderState {
   updateOrderStatus: (orderId: string, status: Tables['orders']['Row']['status']) => Promise<Tables['orders']['Row']>;
 }
 
-export const useOrderStore = create<OrderState>((set, get) => ({
+export const useOrderStore = create<OrderState>((set) => ({
   orders: [],
   loading: false,
   error: null,
@@ -160,8 +160,8 @@ export const useOrderStore = create<OrderState>((set, get) => ({
       }
       
       // Update local state with the updated order data
-      set((state) => ({
-        orders: state.orders.map((order) => 
+      set((state: OrderState) => ({
+        orders: state.orders.map((order: Order) => 
           order.id === orderId 
             ? { 
                 ...order, 

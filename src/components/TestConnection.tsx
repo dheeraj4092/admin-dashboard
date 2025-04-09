@@ -25,7 +25,7 @@ export default function TestConnection() {
   const testConnection = async () => {
     try {
       // Test 1: Check basic connection
-      const { data: authData, error: authError } = await supabase.auth.getSession();
+      const { error: authError } = await supabase.auth.getSession();
       if (authError) throw new Error(`Connection error: ${authError.message}`);
       setStatus(prev => ({ ...prev, connection: true }));
 
@@ -55,7 +55,7 @@ export default function TestConnection() {
 
       // Test 5: Check user_roles table
       try {
-        const { data: rolesData, error: rolesError } = await supabase
+        const { error: rolesError } = await supabase
           .from('user_roles')
           .select('id')
           .limit(1);

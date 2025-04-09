@@ -1,14 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useOrderStore, Order } from '../stores/orderStore';
 import { format } from 'date-fns';
-import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 
 const AdminOrders = () => {
   const { orders, loading, error, getAdminOrders, updateOrderStatus } = useOrderStore();
-  const [selectedOrder, setSelectedOrder] = useState<string | null>(null);
 
   useEffect(() => {
     getAdminOrders();
